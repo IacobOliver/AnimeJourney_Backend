@@ -24,6 +24,7 @@ public class NewAnimeSeasonService {
 
     public List<NewAnimeSeason> getAnimeForPagination(PaginationResponse paginationResponse){
         Pageable pageable = PageRequest.of(paginationResponse.getPage(), paginationResponse.getNumberOfItems());
+        newAnimeSeasonRepository.findAll(pageable);
         //All
         if(paginationResponse.getFilter().equals("")){
             return newAnimeSeasonRepository.getSomeAnime(pageable);
